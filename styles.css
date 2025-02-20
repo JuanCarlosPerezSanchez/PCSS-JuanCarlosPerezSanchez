@@ -1,0 +1,91 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #121212;
+    color: white;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+/* Estilos para la pantalla de inicio */
+#landing {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+/* Contenedor del ordenador */
+#computer-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.pc-diagram {
+    width: 60%;
+    max-width: 600px;
+}
+
+.component {
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.component:hover {
+    transform: scale(1.1);
+}
+
+/* Posiciones de los componentes */
+#gpu { top: 20%; left: 30%; }
+#cpu { top: 30%; right: 30%; }
+#ram { top: 50%; left: 20%; }
+#storage { bottom: 20%; right: 40%; }
+#psu { bottom: 10%; left: 50%; }
+
+/* Secciones ocultas */
+.container {
+    display: none;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+}
