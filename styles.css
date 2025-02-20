@@ -4,13 +4,14 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #121212; /* Fondo oscuro */
     color: white;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Evitar desbordamiento durante la animación */
+    background-size: cover;
+    background-position: center;
 }
 
 /* Pantalla inicial */
@@ -29,7 +30,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
     z-index: -1; /* Colocar la imagen detrás del contenido */
 }
 
@@ -86,27 +86,13 @@ body {
 
 /* Secciones ocultas */
 .container {
-    display: block; /* Mostrar las secciones por defecto */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    padding: 100px;
+    border-radius: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 2; /* Asegurar que esté sobre todo */
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-}
-
-.hidden {
-    display: none; /* Ocultar elementos con esta clase */
-}
-
-/* Animación de zoom */
-.zoom-animation {
-    animation: zoomIn 0.5s ease-in-out;
 }
 
 @keyframes zoomIn {
@@ -118,4 +104,42 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+/* Estilos específicos para cada subpágina */
+
+/* Sobre Mí */
+body.sobre-mi {
+    background-image: url('Images/pc-gaming-a-medida-pcv-informatica-1920x1080.png'); /* Imagen de fondo */
+}
+
+.sobre-mi .container {
+    border: 2px solid #00ffcc; /* Borde cian */
+}
+
+/* Habilidades */
+body.habilidades {
+    background-image: url('Images/skills-background.jpg'); /* Imagen de fondo */
+}
+
+.habilidades .container {
+    border: 2px solid #ff00ff; /* Borde magenta */
+}
+
+/* Educación */
+body.educacion {
+    background-image: url('Images/education-background.jpg'); /* Imagen de fondo */
+}
+
+.educacion .container {
+    border: 2px solid #ffcc00; /* Borde amarillo */
+}
+
+/* Contacto */
+body.contacto {
+    background-image: url('Images/contact-background.jpg'); /* Imagen de fondo */
+}
+
+.contacto .container {
+    border: 2px solid #ffffff; /* Borde blanco */
 }
