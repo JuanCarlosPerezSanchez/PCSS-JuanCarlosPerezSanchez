@@ -4,88 +4,118 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #121212;
+    background-color: #121212; /* Fondo oscuro */
     color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evitar desbordamiento durante la animación */
 }
 
-h1 {
-    margin-top: 50px;
-    font-size: 2rem;
-}
-
-/* Estilos para la pantalla de inicio */
-#landing {
+/* Pantalla inicial */
+#initial-screen {
     position: relative;
     height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-.background-img {
+#initial-screen .background-img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.8;
+    z-index: -1; /* Colocar la imagen detrás del contenido */
 }
 
-/* Contenedor del ordenador */
-#computer-container {
-    position: relative;
+/* Contenedor para los textos centrados */
+#text-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Alinear textos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    gap: 30px; /* Espacio entre los textos */
+    z-index: 1; /* Asegurar que el texto esté sobre la imagen */
+}
+
+/* Texto principal */
+#main-text {
+    font-size: 2.5rem; /* Tamaño un poco más grande */
+    margin: 0; /* Eliminar márgenes por defecto */
+    color: #ff00ff; /* Color magenta para las letras */
+    -webkit-text-stroke: 1px #00ffcc; /* Borde cian de 1px */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Texto "Pulsa para empezar" */
+#start-text {
+    font-size: 2rem; /* Tamaño más pequeño */
+    animation: breath 2s infinite; /* Animación de parpadeo lento */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el texto */
+    color: #ffffff; /* Color blanco */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+@keyframes breath {
+    0%, 100% { opacity: 1; } /* Comienza y termina con opacidad completa */
+    50% { opacity: 0; } /* En el punto medio, la opacidad se reduce */
+}
+
+/* Pantalla principal */
+#main-content {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
     align-items: center;
-    margin-top: 50px;
-    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    text-align: center;
 }
 
-.pc-diagram {
-    width: 60%;
-    max-width: 600px;
+/* Estilos para la imagen mapeada */
+.mapped-image {
+    height: 953px;
+    width: auto; /* Ajustar el ancho automáticamente */
+    max-width: 100%; /* Asegurar que no se desborde */
 }
-
-.component {
-    position: absolute;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.component:hover {
-    transform: scale(1.1);
-}
-
-/* Posiciones de los componentes */
-#gpu { top: 20%; left: 30%; }
-#cpu { top: 30%; right: 30%; }
-#ram { top: 50%; left: 20%; }
-#storage { bottom: 20%; right: 40%; }
-#psu { bottom: 10%; left: 50%; }
 
 /* Secciones ocultas */
 .container {
-    display: none;
-    margin-top: 50px;
+    display: block; /* Mostrar las secciones por defecto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    z-index: 2; /* Asegurar que esté sobre todo */
     width: 80%;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 .hidden {
-    display: none;
+    display: none; /* Ocultar elementos con esta clase */
 }
 
-/* Footer */
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #222;
+/* Animación de zoom */
+.zoom-animation {
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

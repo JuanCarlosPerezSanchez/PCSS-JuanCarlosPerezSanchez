@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal - Juan Carlos Pérez Sánchez</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla principal -->
+    <div id="main-content">
+        <!-- Mapeado de la imagen -->
+        <img src="Images/Principal.png" usemap="#image-map" class="mapped-image">
+        
+        <map name="image-map">
+            <area target="_self" alt="Teclado" title="Teclado" href="habilidades.html" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
+            <area target="_self" alt="Raton" title="Raton" href="educacion.html" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
+            <area target="_self" alt="Monitor" title="Monitor" href="sobre-mi.html" coords="355,307,355,611,901,566,901,340" shape="poly">
+            <area target="_self" alt="PC" title="PC" href="contacto.html" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
+        </map>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const areas = document.querySelectorAll('area');
+
+            areas.forEach(area => {
+                area.addEventListener('click', function(event) {
+                    event.preventDefault(); // Evitar la redirección inmediata
+
+                    // Aplicar animación de zoom
+                    document.body.style.transform = 'scale(1.5)';
+                    document.body.style.transition = 'transform 0.5s ease-in-out';
+
+                    // Redirigir después de la animación
+                    setTimeout(() => {
+                        window.location.href = area.getAttribute('href');
+                    }, 500); // Duración de la animación
+                });
+            });
+        });
+    </script>
+</body>
+</html>

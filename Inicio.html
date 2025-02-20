@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Juan Carlos Pérez Sánchez</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla inicial -->
+    <div id="initial-screen">
+        <img src="Images/Inicio.png" alt="Fondo Inicial" class="background-img">
+        <!-- Contenedor para los textos centrados -->
+        <div id="text-container">
+            <h1 id="main-text">Mi nombre es Juan Carlos Pérez Sánchez y soy desarrollador web</h1>
+            <div id="start-text">Pulsa para empezar</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const initialScreen = document.getElementById('initial-screen');
+
+            // Al hacer clic en la pantalla inicial
+            initialScreen.addEventListener('click', function() {
+                // Redirigir a la pantalla principal (Principal.html)
+                window.location.href = "Principal.html";
+            });
+        });
+    </script>
+</body>
+</html>
