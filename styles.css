@@ -4,15 +4,130 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #121212; /* Fondo oscuro */
     color: white;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Evitar desbordamiento durante la animación */
-    background-size: cover;
-    background-position: center;
 }
+
+/* Pantalla principal */
+#main-content {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilos para la imagen mapeada */
+.mapped-image {
+    height: 953px;
+    width: auto; /* Ajustar el ancho automáticamente */
+    max-width: 100%; /* Asegurar que no se desborde */
+}
+
+/* Overlay para puntos parpadeantes */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permitir clics en las áreas mapeadas */
+}
+
+/* Estilos para los puntos parpadeantes */
+.blinking-dot {
+    position: absolute;
+    width: 20px; /* Tamaño del punto */
+    height: 20px; /* Tamaño del punto */
+    background-color: white; /* Color del punto */
+    border-radius: 50%; /* Forma circular */
+    animation: blink 4s infinite; /* Animación de parpadeo */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.8; /* Punto completamente visible */
+    }
+    50% {
+        opacity: 0; /* Punto completamente transparente */
+    }
+}
+
+/* Secciones ocultas */
+.container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2; /* Asegurar que esté sobre todo */
+    width: 80%;
+    max-width: 600px;
+    animation: buildSection 0.8s ease-out forwards; /* Animación de construcción */
+    opacity: 0; /* Inicialmente invisible */
+}
+
+.container.hidden {
+    display: none;
+}
+
+.container:not(.hidden) {
+    display: block;
+    animation: fadeIn 0.8s ease-out forwards; /* Animación de aparición */
+}
+
+/* Animación de construcción por piezas */
+@keyframes buildSection {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); /* Sin contenido visible */
+        opacity: 0;
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Contenido completo */
+        opacity: 1;
+    }
+}
+
+/* Animación de aparición gradual */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Botón de cerrar */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc00cc;
+}
+
+/* ================================================== */
+/* Estilos específicos para la página de inicio (Inicio.html) */
+/* ================================================== */
 
 /* Pantalla inicial */
 #initial-screen {
@@ -66,80 +181,52 @@ body {
     50% { opacity: 0; } /* En el punto medio, la opacidad se reduce */
 }
 
-/* Pantalla principal */
-#main-content {
-    position: relative;
-    height: 100vh;
-    width: 100%;
+/* ================================================== */
+/* Estilos para el controlador de música */
+/* ================================================== */
+
+#music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 10px;
+    z-index: 1000; /* Asegurar que esté por encima de todo */
 }
 
-/* Estilos para la imagen mapeada */
-.mapped-image {
-    height: 953px;
-    width: auto; /* Ajustar el ancho automáticamente */
-    max-width: 100%; /* Asegurar que no se desborde */
+#music-toggle {
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
-/* Secciones ocultas */
-.container {
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-    padding: 100px;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#music-toggle:hover {
+    background-color: #cc00cc;
 }
 
-@keyframes zoomIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+#volume-control {
+    cursor: pointer;
 }
 
-/* Estilos específicos para cada subpágina */
-
-/* Sobre Mí */
-body.sobre-mi {
-    background-image: url('Images/pc-gaming-a-medida-pcv-informatica-1920x1080.png'); /* Imagen de fondo */
+/* Estilos para el botón de música */
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Asegurar que esté por encima de todo */
 }
 
-.sobre-mi .container {
-    border: 2px solid #00ffcc; /* Borde cian */
-}
-
-/* Habilidades */
-body.habilidades {
-    background-image: url('Images/skills-background.jpg'); /* Imagen de fondo */
-}
-
-.habilidades .container {
-    border: 2px solid #ff00ff; /* Borde magenta */
-}
-
-/* Educación */
-body.educacion {
-    background-image: url('Images/education-background.jpg'); /* Imagen de fondo */
-}
-
-.educacion .container {
-    border: 2px solid #ffcc00; /* Borde amarillo */
-}
-
-/* Contacto */
-body.contacto {
-    background-image: url('Images/contact-background.jpg'); /* Imagen de fondo */
-}
-
-.contacto .container {
-    border: 2px solid #ffffff; /* Borde blanco */
+.music-button:hover {
+    background-color: #cc00cc;
 }

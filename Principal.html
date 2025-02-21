@@ -12,33 +12,87 @@
         <!-- Mapeado de la imagen -->
         <img src="Images/Principal.png" usemap="#image-map" class="mapped-image">
         
+        <!-- Puntos parpadeantes -->
+        <div class="overlay">
+            <!-- Punto para la PC -->
+            <div class="blinking-dot" style="top: 390px; left: 1190px;"></div>
+             <!-- Punto para el teclado -->
+            <div class="blinking-dot" style="top: 685px; left: 760px;"></div>
+            <!-- Punto para el monitor -->
+            <div class="blinking-dot" style="top: 445px; left: 637px;"></div>
+            <!-- Punto para el ratón -->
+            <div class="blinking-dot" style="top: 655px; left: 1030px;"></div>
+        </div>
+
         <map name="image-map">
-            <area target="_self" alt="Teclado" title="Teclado" href="habilidades.html" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
-            <area target="_self" alt="Raton" title="Raton" href="educacion.html" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
-            <area target="_self" alt="Monitor" title="Monitor" href="sobre-mi.html" coords="355,307,355,611,901,566,901,340" shape="poly">
-            <area target="_self" alt="PC" title="PC" href="contacto.html" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
+            <area target="_self" alt="Teclado" title="Sobre mi" href="#sobre-mi" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
+            <area target="_self" alt="Raton" title="Mi Educación" href="#educacion" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
+            <area target="_self" alt="Monitor" title="Mis Habilidades" href="#habilidades" coords="355,307,355,611,901,566,901,340" shape="poly">
+            <area target="_self" alt="PC" title="Mi Contacto" href="#contacto" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
         </map>
     </div>
+
+    <!-- Secciones ocultas -->
+    <section id="sobre-mi" class="container hidden">
+        <h2>Sobre Mí</h2>
+        <p>Soy una persona amable y educada con muchas ganas de aprender, especialmente en el mundo de la informática y la electrónica.</p>
+        <button onclick="hideSection('sobre-mi')">Cerrar</button>
+    </section>
+
+    <section id="educacion" class="container hidden">
+        <h2>Educación</h2>
+        <ul>
+            <li>Grado Medio de Telecomunicaciones - Instituto Tecnológico Superior ADA ITS (2019-2023)</li>
+            <li>Grado Superior en Desarrollo de Aplicaciones Web - Instituto Tecnológico Superior ADA ITS (2023-2025)</li>
+        </ul>
+        <button onclick="hideSection('educacion')">Cerrar</button>
+    </section>
+
+    <section id="habilidades" class="container hidden">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>Buena comunicación -> Me considero una persona con una buena comunicación, lo que me convierte en buen compañero para cualquier equipo</li>
+            <li>Empatía</li>
+            <li>Trabajo en equipo</li>
+            <li>Responsabilidad</li>
+            <li>Toma de decisiones</li>
+        </ul>
+        <button onclick="hideSection('habilidades')">Cerrar</button>
+    </section>
+
+    <section id="contacto" class="container hidden">
+        <h2>Contacto</h2>
+        <p>Teléfono: 611 607 940</p>
+        <p>Email: jcpersa74@gmail.com</p>
+        <p>Ubicación: Av. Altamira 29, bloque 1, 8°D, Sevilla</p>
+        <button onclick="hideSection('contacto')">Cerrar</button>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const areas = document.querySelectorAll('area');
 
+            // Mostrar secciones al hacer clic en las áreas
             areas.forEach(area => {
                 area.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evitar la redirección inmediata
+                    event.preventDefault(); // Evitar el comportamiento por defecto del enlace
 
-                    // Aplicar animación de zoom
-                    document.body.style.transform = 'scale(1.5)';
-                    document.body.style.transition = 'transform 0.5s ease-in-out';
+                    // Ocultar todas las secciones
+                    document.querySelectorAll('.container').forEach(section => {
+                        section.classList.add('hidden');
+                    });
 
-                    // Redirigir después de la animación
-                    setTimeout(() => {
-                        window.location.href = area.getAttribute('href');
-                    }, 500); // Duración de la animación
+                    // Mostrar la sección correspondiente
+                    const targetId = area.getAttribute('href').substring(1); // Obtener el id de la sección
+                    document.getElementById(targetId).classList.remove('hidden');
                 });
             });
         });
+
+        // Función para ocultar secciones
+        function hideSection(sectionId) {
+            document.getElementById(sectionId).classList.add('hidden');
+        }
     </script>
 </body>
 </html>
