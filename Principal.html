@@ -58,11 +58,11 @@
     <section id="educacion" class="contenedor oculto">
         <h2>Datos académicos</h2>
         <ul>
-            <h2>Enseñanza obligatoria:</h2><br>
-            <li>CEIP SANTA CLARA | C. Fray Marcos de Niza, 0, 41007 Sevilla. | 2007-2015</li>
+            <h2>Enseñanza obligatoria:</h2>
+            <li>CEIP SANTA CLARA | C. Fray Marcos de Niza, 0, 41007 Sevilla. | 2007-2015</li><br>
             <li>IES JOAQUÍN TURINA | Donante de Órganos, 2, 41007 Sevilla. | 2015-2019</li><br>
-            <h2>Enseñanza no obligatoria:</h2><br>
-            <li>Grado medio de Telecomunicaciones: Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019 Sevilla. | 2019-2023</li>
+            <h2>Enseñanza no obligatoria:</h2>
+            <li>Grado medio de Telecomunicaciones: Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019 Sevilla. | 2019-2023</li><br>
             <li>Grado Superior de Desarrollo de Aplicaciones Web (DAW): Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019 Sevilla. | 2023-2025</li>
         </ul>
         <button onclick="ocultarSeccion('educacion')">Cerrar</button>
@@ -71,10 +71,10 @@
     <section id="habilidades" class="contenedor oculto">
         <h2>Habilidades</h2>
         <ul>
-            <li>Buena comunicación - Lo que me convierte en el compañero ideal para cualquier equipo.</li>
-            <li>Empatía - Algo imprescindible para las interacciones sociales diarias.</li>
-            <li>Trabajo en equipo - Perfecto para el trabajo y bastante útil para el día a día.</li>
-            <li>Responsabilidad - Sin duda algo imprescindible tanto en lo laboral como en lo personal.</li>
+            <li>Buena comunicación - Lo que me convierte en el compañero ideal para cualquier equipo.</li><br>
+            <li>Empatía - Algo imprescindible para las interacciones sociales diarias.</li><br>
+            <li>Trabajo en equipo - Perfecto para el trabajo y bastante útil para el día a día.</li><br>
+            <li>Responsabilidad - Sin duda algo imprescindible tanto en lo laboral como en lo personal.</li><br>
             <li>Toma de decisiones - Algo casualmente complejo pero necesario en muchas situaciones.</li>
         </ul>
         <button onclick="ocultarSeccion('habilidades')">Cerrar</button>
@@ -88,108 +88,7 @@
         <button onclick="ocultarSeccion('contacto')">Cerrar</button>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const musicaFondo = document.getElementById('musica-fondo');
-            const botonMusica = document.getElementById('boton-musica');
-            const iconoReproducir = document.getElementById('icono-reproducir');
-            const iconoPausar = document.getElementById('icono-pausar');
-            const botonSilenciar = document.getElementById('boton-silenciar');
-            const iconoSonido = document.getElementById('icono-sonido');
-            const iconoSilencio = document.getElementById('icono-silencio');
-            const controlVolumen = document.getElementById('control-volumen');
-
-            // Recuperar el estado de la música desde localStorage
-            const estadoMusicaGuardado = localStorage.getItem('estadoMusica');
-            if (estadoMusicaGuardado) {
-                const { volumen, silenciado, pausado } = JSON.parse(estadoMusicaGuardado);
-                musicaFondo.volume = volumen;
-                musicaFondo.muted = silenciado;
-                if (!pausado) {
-                    musicaFondo.play().catch(() => {
-                        console.log("La reproducción automática fue bloqueada.");
-                    });
-                }
-                controlVolumen.value = volumen;
-            }
-
-            // Función para actualizar los íconos de reproducción y silencio
-            function actualizarIconosMusica() {
-                if (musicaFondo.paused) {
-                    iconoReproducir.style.display = "inline";
-                    iconoPausar.style.display = "none";
-                } else {
-                    iconoReproducir.style.display = "none";
-                    iconoPausar.style.display = "inline";
-                }
-
-                if (musicaFondo.muted) {
-                    iconoSonido.style.display = "none";
-                    iconoSilencio.style.display = "inline";
-                } else {
-                    iconoSonido.style.display = "inline";
-                    iconoSilencio.style.display = "none";
-                }
-            }
-
-            // Controlar la música (pausar/reanudar)
-            botonMusica.addEventListener('click', function() {
-                if (musicaFondo.paused) {
-                    musicaFondo.play();
-                } else {
-                    musicaFondo.pause();
-                }
-                actualizarIconosMusica();
-            });
-
-            // Controlar el mutear
-            botonSilenciar.addEventListener('click', function() {
-                musicaFondo.muted = !musicaFondo.muted;
-                actualizarIconosMusica();
-            });
-
-            // Controlar el volumen
-            controlVolumen.addEventListener('input', function() {
-                musicaFondo.volume = controlVolumen.value;
-                if (musicaFondo.volume === 0) {
-                    musicaFondo.muted = true;
-                } else {
-                    musicaFondo.muted = false;
-                }
-                actualizarIconosMusica();
-            });
-
-            // Actualizar los íconos al cargar la página
-            actualizarIconosMusica();
-
-            // Manejar clics en las áreas mapeadas
-            const areas = document.querySelectorAll('area');
-            areas.forEach(area => {
-                area.addEventListener('click', function(event) {
-                    event.preventDefault();
-
-                    // Ocultar todas las secciones
-                    document.querySelectorAll('.contenedor').forEach(seccion => {
-                        seccion.classList.add('oculto');
-                    });
-
-                    // Mostrar la sección correspondiente
-                    const idSeccion = area.getAttribute('href').substring(1);
-                    const seccion = document.getElementById(idSeccion);
-                    if (seccion) {
-                        seccion.classList.remove('oculto');
-                    }
-                });
-            });
-        });
-
-        // Función para ocultar secciones
-        function ocultarSeccion(idSeccion) {
-            const seccion = document.getElementById(idSeccion);
-            if (seccion) {
-                seccion.classList.add('oculto');
-            }
-        }
-    </script>
+    <!-- Incluir el archivo JavaScript -->
+    <script src="scripts.js"></script>
 </body>
 </html>
