@@ -37,7 +37,7 @@ function configurarMusica() {
     });
 
     // Controlar la música (pausar/reanudar)
-    botonMusica.addEventListener('click', function() {
+    botonMusica.addEventListener('click', function () {
         if (musicaFondo.paused) {
             musicaFondo.play();
         } else {
@@ -47,13 +47,13 @@ function configurarMusica() {
     });
 
     // Controlar el silencio
-    botonSilenciar.addEventListener('click', function() {
+    botonSilenciar.addEventListener('click', function () {
         musicaFondo.muted = !musicaFondo.muted;
         actualizarIconosMusica(musicaFondo, iconoReproducir, iconoPausar, iconoSonido, iconoSilencio);
     });
 
     // Controlar el volumen
-    controlVolumen.addEventListener('input', function() {
+    controlVolumen.addEventListener('input', function () {
         musicaFondo.volume = controlVolumen.value;
         if (musicaFondo.volume === 0) {
             musicaFondo.muted = true;
@@ -72,7 +72,7 @@ function configurarInicio() {
     const pantallaInicial = document.getElementById('pantalla-inicial');
 
     // Redirigir a la pantalla principal al hacer clic en la pantalla inicial
-    pantallaInicial.addEventListener('click', function() {
+    pantallaInicial.addEventListener('click', function () {
         const musicaFondo = document.getElementById('musica-fondo');
         // Guardar el estado de la música en localStorage
         localStorage.setItem('estadoMusica', JSON.stringify({
@@ -108,7 +108,7 @@ function configurarPrincipal() {
     // Manejar clics en las áreas mapeadas
     const areas = document.querySelectorAll('area');
     areas.forEach(area => {
-        area.addEventListener('click', function(event) {
+        area.addEventListener('click', function (event) {
             event.preventDefault(); // Evitar el comportamiento por defecto del enlace
 
             // Ocultar todas las secciones
@@ -135,7 +135,7 @@ function ocultarSeccion(idSeccion) {
 }
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     configurarMusica();
 
     if (document.getElementById('pantalla-inicial')) {

@@ -1,94 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Pantalla principal con imagen mapeada -->
-    <div id="contenido-principal">
-        <img src="Images/Principal.png" usemap="#mapa-imagen" class="imagen-mapeada">
-        
-        <!-- Puntos parpadeantes -->
-        <div class="superposicion">
-            <div class="punto-parpadeante" style="top: 390px; left: 1190px;"></div>
-            <div class="punto-parpadeante" style="top: 685px; left: 760px;"></div>
-            <div class="punto-parpadeante" style="top: 445px; left: 637px;"></div>
-            <div class="punto-parpadeante" style="top: 655px; left: 1030px;"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Principal</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <!-- Pantalla principal con imagen mapeada -->
+        <div id="contenido-principal">
+            <img src="Images/Principal.png" usemap="#mapa-imagen" class="imagen-mapeada">
+
+            <!-- Puntos parpadeantes -->
+            <div class="superposicion">
+                <div class="punto-parpadeante" style="top: 390px; left: 1190px;"></div>
+                <div class="punto-parpadeante" style="top: 685px; left: 760px;"></div>
+                <div class="punto-parpadeante" style="top: 445px; left: 637px;"></div>
+                <div class="punto-parpadeante" style="top: 655px; left: 1030px;"></div>
+            </div>
+
+            <!-- Mapeado de áreas interactivas -->
+            <map name="mapa-imagen">
+                <area target="_self" alt="PC" title="Educación" href="#educacion"
+                    coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
+                <area target="_self" alt="Teclado" title="Habilidades" href="#habilidades"
+                    coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
+                <area target="_self" alt="Monitor" title="Sobre mí" href="#sobre-mi"
+                    coords="355,307,355,611,901,566,901,340" shape="poly">
+                <area target="_self" alt="Ratón" title="Contacto" href="#contacto"
+                    coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
+            </map>
         </div>
 
-        <!-- Mapeado de áreas interactivas -->
-        <map name="mapa-imagen">
-            <area target="_self" alt="PC" title="Educación" href="#educacion" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
-            <area target="_self" alt="Teclado" title="Habilidades" href="#habilidades" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
-            <area target="_self" alt="Monitor" title="Sobre mí" href="#sobre-mi" coords="355,307,355,611,901,566,901,340" shape="poly">
-            <area target="_self" alt="Ratón" title="Contacto" href="#contacto" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
-        </map>
-    </div>
+        <!-- Reproductor de música -->
+        <audio id="musica-fondo" loop>
+            <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
+        </audio>
 
-    <!-- Reproductor de música -->
-    <audio id="musica-fondo" loop>
-        <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
-    </audio>
+        <!-- Controlador de música -->
+        <div id="controles-musica">
+            <button id="boton-musica">
+                <span id="icono-reproducir">▶️</span>
+                <span id="icono-pausar" style="display: none;">⏸️</span>
+            </button>
+            <button id="boton-silenciar">
+                <span id="icono-sonido">🔊</span>
+                <span id="icono-silencio" style="display: none;">🔇</span>
+            </button>
+            <input type="range" id="control-volumen" min="0" max="1" step="0.01" value="0.1">
+        </div>
 
-    <!-- Controlador de música -->
-    <div id="controles-musica">
-        <button id="boton-musica">
-            <span id="icono-reproducir">▶️</span>
-            <span id="icono-pausar" style="display: none;">⏸️</span>
-        </button>
-        <button id="boton-silenciar">
-            <span id="icono-sonido">🔊</span>
-            <span id="icono-silencio" style="display: none;">🔇</span>
-        </button>
-        <input type="range" id="control-volumen" min="0" max="1" step="0.01" value="0.1">
-    </div>
+        <!-- Secciones ocultas -->
+        <section id="sobre-mi" class="contenedor oculto">
+            <h2>Sobre Mí</h2>
+            <p>Me considero una persona amable y educada, a la que le apasiona aprender, sobre todo me encanta el mundo de
+                la informática y la electrónica, en ese orden. <br> También soy un gran amante del deporte.</p>
+            <h2>Más Información</h2>
+            <p>- Disponibilidad total. <br> - Carné de conducir.</p>
+            <button onclick="ocultarSeccion('sobre-mi')">Cerrar</button>
+        </section>
 
-    <!-- Secciones ocultas -->
-    <section id="sobre-mi" class="contenedor oculto">
-        <h2>Sobre Mí</h2>
-        <p>Me considero una persona amable y educada, a la que le apasiona aprender, sobre todo me encanta el mundo de la informática y la electrónica, en ese orden. <br> También soy un gran amante del deporte.</p>
-        <h2>Más Información</h2>
-        <p>- Disponibilidad total. <br> - Carné de conducir.</p>
-        <button onclick="ocultarSeccion('sobre-mi')">Cerrar</button>
-    </section>
+        <section id="educacion" class="contenedor oculto">
+            <h2>Datos académicos</h2>
+            <ul>
+                <h2>Enseñanza obligatoria:</h2>
+                <li>CEIP SANTA CLARA | C. Fray Marcos de Niza, 0, 41007 Sevilla. | 2007-2015</li><br>
+                <li>IES JOAQUÍN TURINA | Donante de Órganos, 2, 41007 Sevilla. | 2015-2019</li><br>
+                <h2>Enseñanza no obligatoria:</h2>
+                <li>Grado medio de Telecomunicaciones: Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019
+                    Sevilla. | 2019-2023</li><br>
+                <li>Grado Superior de Desarrollo de Aplicaciones Web (DAW): Instituto Tecnológico Superior ADA ITS | Av.
+                    Turia, 11, 41019 Sevilla. | 2023-2025</li>
+            </ul>
+            <button onclick="ocultarSeccion('educacion')">Cerrar</button>
+        </section>
 
-    <section id="educacion" class="contenedor oculto">
-        <h2>Datos académicos</h2>
-        <ul>
-            <h2>Enseñanza obligatoria:</h2>
-            <li>CEIP SANTA CLARA | C. Fray Marcos de Niza, 0, 41007 Sevilla. | 2007-2015</li><br>
-            <li>IES JOAQUÍN TURINA | Donante de Órganos, 2, 41007 Sevilla. | 2015-2019</li><br>
-            <h2>Enseñanza no obligatoria:</h2>
-            <li>Grado medio de Telecomunicaciones: Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019 Sevilla. | 2019-2023</li><br>
-            <li>Grado Superior de Desarrollo de Aplicaciones Web (DAW): Instituto Tecnológico Superior ADA ITS | Av. Turia, 11, 41019 Sevilla. | 2023-2025</li>
-        </ul>
-        <button onclick="ocultarSeccion('educacion')">Cerrar</button>
-    </section>
+        <section id="habilidades" class="contenedor oculto">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Buena comunicación - Lo que me convierte en el compañero ideal para cualquier equipo.</li><br>
+                <li>Empatía - Algo imprescindible para las interacciones sociales diarias.</li><br>
+                <li>Trabajo en equipo - Perfecto para el trabajo y bastante útil para el día a día.</li><br>
+                <li>Responsabilidad - Sin duda algo imprescindible tanto en lo laboral como en lo personal.</li><br>
+                <li>Toma de decisiones - Algo casualmente complejo pero necesario en muchas situaciones.</li>
+            </ul>
+            <button onclick="ocultarSeccion('habilidades')">Cerrar</button>
+        </section>
 
-    <section id="habilidades" class="contenedor oculto">
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Buena comunicación - Lo que me convierte en el compañero ideal para cualquier equipo.</li><br>
-            <li>Empatía - Algo imprescindible para las interacciones sociales diarias.</li><br>
-            <li>Trabajo en equipo - Perfecto para el trabajo y bastante útil para el día a día.</li><br>
-            <li>Responsabilidad - Sin duda algo imprescindible tanto en lo laboral como en lo personal.</li><br>
-            <li>Toma de decisiones - Algo casualmente complejo pero necesario en muchas situaciones.</li>
-        </ul>
-        <button onclick="ocultarSeccion('habilidades')">Cerrar</button>
-    </section>
+        <section id="contacto" class="contenedor oculto">
+            <h2>Contacto</h2>
+            <p>Teléfono: 611 607 940</p>
+            <p>Email: jcpersan47@gmail.com</p>
+            <p>Ubicación: Av. Altamira 29, bloque 1, 8°D, Sevilla</p>
+            <button onclick="ocultarSeccion('contacto')">Cerrar</button>
+        </section>
 
-    <section id="contacto" class="contenedor oculto">
-        <h2>Contacto</h2>
-        <p>Teléfono: 611 607 940</p>
-        <p>Email: jcpersan47@gmail.com</p>
-        <p>Ubicación: Av. Altamira 29, bloque 1, 8°D, Sevilla</p>
-        <button onclick="ocultarSeccion('contacto')">Cerrar</button>
-    </section>
-
-    <!-- Incluir el archivo JavaScript -->
-    <script src="scripts.js"></script>
-</body>
+        <!-- Inporta el archivo scripts.js -->
+        <script src="scripts.js"></script>
+    </body>
 </html>
