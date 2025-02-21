@@ -25,17 +25,35 @@
         </div>
 
         <map name="image-map">
-            <area target="_self" alt="Teclado" title="Sobre mi" href="#sobre-mi" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
-            <area target="_self" alt="Raton" title="Mi Educación" href="#educacion" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
-            <area target="_self" alt="Monitor" title="Mis Habilidades" href="#habilidades" coords="355,307,355,611,901,566,901,340" shape="poly">
-            <area target="_self" alt="PC" title="Mi Contacto" href="#contacto" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
+            <area target="_self" alt="PC" title="Educación" href="#educacion" coords="1458,123,933,198,931,619,1466,654,1547,639,1547,149" shape="poly">
+            <area target="_self" alt="Teclado" title="Habilidades" href="#habilidades" coords="540,692,534,735,623,749,954,698,938,671,868,652" shape="poly">
+            <area target="_self" alt="Monitor" title="Sobre mi" href="#sobre-mi" coords="355,307,355,611,901,566,901,340" shape="poly">
+            <area target="_self" alt="Raton" title="Contacto" href="#contacto" coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
         </map>
+    </div>
+
+    <!-- Reproductor de música -->
+    <audio id="background-music" loop>
+        <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Controlador de música -->
+    <div id="music-controls">
+        <button id="music-toggle">
+            <span id="play-icon">▶️</span>
+            <span id="pause-icon" style="display: none;">⏸️</span>
+        </button>
+        <button id="mute-toggle">
+            <span id="unmuted-icon">🔊</span>
+            <span id="muted-icon" style="display: none;">🔇</span>
+        </button>
+        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.3">
     </div>
 
     <!-- Secciones ocultas -->
     <section id="sobre-mi" class="container hidden">
         <h2>Sobre Mí</h2>
-        <p>Soy una persona amable y educada con muchas ganas de aprender, especialmente en el mundo de la informática y la electrónica.</p>
+        <p>Me considero una persona amable y educada, a la que le apasiona aprender, sobre todo me encanta el mundo de la informática y la electrónica en ese orden. <br> Tambien soy un gran amante del deporte</p>
         <button onclick="hideSection('sobre-mi')">Cerrar</button>
     </section>
 
@@ -51,8 +69,8 @@
     <section id="habilidades" class="container hidden">
         <h2>Habilidades</h2>
         <ul>
-            <li>Buena comunicación -> Me considero una persona con una buena comunicación, lo que me convierte en buen compañero para cualquier equipo</li>
-            <li>Empatía</li>
+            <li>Buena comunicación - Lo que me convierte en el compañero ideal para cualquier equipo.</li>
+            <li>Empatía - Algo inprescindible para las interacciónes sociales diarias</li>
             <li>Trabajo en equipo</li>
             <li>Responsabilidad</li>
             <li>Toma de decisiones</li>
@@ -70,9 +88,80 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const areas = document.querySelectorAll('area');
+            const musicPlayer = document.getElementById('background-music');
+            const musicToggle = document.getElementById('music-toggle');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const muteToggle = document.getElementById('mute-toggle');
+            const unmutedIcon = document.getElementById('unmuted-icon');
+            const mutedIcon = document.getElementById('muted-icon');
+            const volumeControl = document.getElementById('volume-control');
 
-            // Mostrar secciones al hacer clic en las áreas
+            // Recuperar el estado de la música desde localStorage
+            const savedMusicState = localStorage.getItem('musicState');
+            if (savedMusicState) {
+                const { volume, muted, paused } = JSON.parse(savedMusicState);
+                musicPlayer.volume = volume;
+                musicPlayer.muted = muted;
+                if (!paused) {
+                    musicPlayer.play().catch(() => {
+                        console.log("La reproducción automática fue bloqueada.");
+                    });
+                }
+                volumeControl.value = volume;
+            }
+
+            // Función combinada para actualizar íconos de play/pause y mute
+            function updateMusicIcons() {
+                if (musicPlayer.paused) {
+                    playIcon.style.display = "inline";
+                    pauseIcon.style.display = "none";
+                } else {
+                    playIcon.style.display = "none";
+                    pauseIcon.style.display = "inline";
+                }
+
+                if (musicPlayer.muted) {
+                    unmutedIcon.style.display = "none";
+                    mutedIcon.style.display = "inline";
+                } else {
+                    unmutedIcon.style.display = "inline";
+                    mutedIcon.style.display = "none";
+                }
+            }
+
+            // Controlar la música (pausar/reanudar)
+            musicToggle.addEventListener('click', function() {
+                if (musicPlayer.paused) {
+                    musicPlayer.play();
+                } else {
+                    musicPlayer.pause();
+                }
+                updateMusicIcons();
+            });
+
+            // Controlar el mute
+            muteToggle.addEventListener('click', function() {
+                musicPlayer.muted = !musicPlayer.muted;
+                updateMusicIcons();
+            });
+
+            // Controlar el volumen
+            volumeControl.addEventListener('input', function() {
+                musicPlayer.volume = volumeControl.value;
+                if (musicPlayer.volume === 0) {
+                    musicPlayer.muted = true;
+                } else {
+                    musicPlayer.muted = false;
+                }
+                updateMusicIcons();
+            });
+
+            // Actualizar los íconos al cargar la página
+            updateMusicIcons();
+
+            // Manejar clics en las áreas mapeadas
+            const areas = document.querySelectorAll('area');
             areas.forEach(area => {
                 area.addEventListener('click', function(event) {
                     event.preventDefault(); // Evitar el comportamiento por defecto del enlace
@@ -84,14 +173,20 @@
 
                     // Mostrar la sección correspondiente
                     const targetId = area.getAttribute('href').substring(1); // Obtener el id de la sección
-                    document.getElementById(targetId).classList.remove('hidden');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
                 });
             });
         });
 
         // Función para ocultar secciones
         function hideSection(sectionId) {
-            document.getElementById(sectionId).classList.add('hidden');
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('hidden');
+            }
         }
     </script>
 </body>
