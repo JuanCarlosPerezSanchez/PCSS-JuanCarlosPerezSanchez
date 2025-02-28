@@ -166,85 +166,85 @@ button:hover {
 /* Media queries para tabletas */
 @media (max-width: 768px) {
     body {
-        padding: 10px; /* Relleno */
-        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png'); /* Imagen de fondo */
-        background-size: cover; /* Cubrir fondo */
-        background-position: center; /* Centrar fondo */
+        padding: 10px;
+        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
+        background-size: cover;
+        background-position: center;
     }
 
     .contenedor {
-        padding: 20px; /* Relleno */
-        width: 90%; /* Ancho del 90% */
-        max-width: 90%; /* Ancho máximo del 90% */
-        background-color: rgba(0, 0, 0, 0.96); /* Fondo semitransparente */
-        border-radius: 10px; /* Bordes redondeados */
-        margin: 20px 0; /* Margen vertical */
+        padding: 20px;
+        width: 90%;
+        max-width: 90%;
+        background-color: rgba(0, 0, 0, 0.96);
+        border-radius: 10px;
+        margin: 20px 0;
     }
 
     #texto-principal {
-        font-size: 2rem; /* Tamaño de fuente */
+        font-size: 2rem;
     }
 
     #texto-inicio {
-        font-size: 1.5rem; /* Tamaño de fuente */
+        font-size: 1.5rem;
     }
 
     .punto-parpadeante {
-        width: 15px; /* Ancho reducido */
-        height: 15px; /* Altura reducida */
+        width: 15px;
+        height: 15px;
     }
 
     button {
-        padding: 8px 16px; /* Relleno */
+        padding: 8px 16px;
     }
 
     #control-volumen {
-        width: 60px; /* Ancho reducido */
+        width: 60px;
     }
 
     /* Ocultar imagen mapeada y mostrar alternativa */
     #contenido-principal {
-        display: none; /* Ocultar */
+        display: none;
     }
 
     #contenido-alternativo {
-        display: flex; /* Mostrar como flexbox */
-        flex-direction: column; /* Dirección de columna */
-        align-items: center; /* Centrar horizontalmente */
-        justify-content: center; /* Centrar verticalmente */
-        gap: 20px; /* Espacio entre elementos */
-        width: 100%; /* Ancho completo */
-        height: 100vh; /* Altura completa */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        height: 100vh;
     }
 
     .boton-seccion {
-        background-color: #ff00ff; /* Color de fondo */
-        color: white; /* Color del texto */
-        border: none; /* Sin borde */
-        border-radius: 5px; /* Bordes redondeados */
-        padding: 10px 20px; /* Relleno */
-        cursor: pointer; /* Cursor de puntero */
-        font-size: 1.2rem; /* Tamaño de fuente */
-        width: 80%; /* Ancho del 80% */
-        max-width: 300px; /* Ancho máximo */
+        background-color: #ff00ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        width: 80%;
+        max-width: 300px;
     }
 
     .boton-seccion:hover {
-        background-color: #cc00cc; /* Color de fondo al pasar el ratón */
+        background-color: #cc00cc;
     }
 
     .seccion {
-        display: none; /* Ocultar por defecto */
-        background-color: rgba(0, 0, 0, 0.96); /* Fondo semitransparente */
-        padding: 20px; /* Relleno */
-        border-radius: 10px; /* Bordes redondeados */
-        width: 90%; /* Ancho del 90% */
-        max-width: 600px; /* Ancho máximo */
-        margin: 20px 0; /* Margen vertical */
+        display: none;
+        background-color: rgba(0, 0, 0, 0.96);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+        margin: 20px 0;
     }
 
     .seccion.visible {
-        display: block; /* Mostrar cuando es visible */
+        display: block;
     }
 }
 
