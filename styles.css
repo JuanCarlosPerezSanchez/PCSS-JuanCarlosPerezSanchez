@@ -181,8 +181,8 @@ button:hover {
         background-color: rgba(0, 0, 0, 0.96);
         padding: 20px;
         border-radius: 10px;
-        width: 90%;
-        max-width: 600px;
+        width: 800%;
+        max-width: 300px;
         margin: 20px 0;
     }
 
