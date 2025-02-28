@@ -140,7 +140,7 @@ function ocultarSeccion(idSeccion) {
 function mostrarSeccion(idSeccion) {
     // Ocultar todas las secciones
     document.querySelectorAll('.seccion').forEach(seccion => {
-        seccion.classList.remove('visible');
+        seccion.classList.remove('oculto');
     });
 
     // Mostrar la sección correspondiente
