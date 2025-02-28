@@ -312,8 +312,4 @@ button:hover {
     .contenedor.visible {
         display: block;
     }
-
-    .contenedor.oculto {
-        display: none;
-    }
 }
