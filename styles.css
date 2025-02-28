@@ -184,10 +184,6 @@ button:hover {
         border-radius: 100%;
     }
 
-    .contenedor.oculto {
-        display: none;
-    }
-
     .contenedor:not(.oculto) {
         animation: aparecer 2.3s ease-out forwards;
     }
