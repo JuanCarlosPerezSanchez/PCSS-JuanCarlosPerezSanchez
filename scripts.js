@@ -105,25 +105,27 @@ function configurarPrincipal() {
         controlVolumen.value = volumen;
     }
 
-    // Manejar clics en las áreas mapeadas
-    const areas = document.querySelectorAll('area');
-    areas.forEach(area => {
-        area.addEventListener('click', function (event) {
-            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+    // Manejar clics en las áreas mapeadas solo en modo escritorio
+    if (window.innerWidth > 768) {
+        const areas = document.querySelectorAll('area');
+        areas.forEach(area => {
+            area.addEventListener('click', function (event) {
+                event.preventDefault(); // Evitar el comportamiento por defecto del enlace
 
-            // Ocultar todas las secciones
-            document.querySelectorAll('.contenedor').forEach(seccion => {
-                seccion.classList.add('oculto');
+                // Ocultar todas las secciones
+                document.querySelectorAll('.contenedor').forEach(seccion => {
+                    seccion.classList.add('oculto');
+                });
+
+                // Mostrar la sección correspondiente
+                const idSeccion = area.getAttribute('href').substring(1);
+                const seccion = document.getElementById(idSeccion);
+                if (seccion) {
+                    seccion.classList.remove('oculto');
+                }
             });
-
-            // Mostrar la sección correspondiente
-            const idSeccion = area.getAttribute('href').substring(1);
-            const seccion = document.getElementById(idSeccion);
-            if (seccion) {
-                seccion.classList.remove('oculto');
-            }
         });
-    });
+    }
 }
 
 // Función para ocultar secciones
@@ -131,6 +133,20 @@ function ocultarSeccion(idSeccion) {
     const seccion = document.getElementById(idSeccion);
     if (seccion) {
         seccion.classList.add('oculto');
+    }
+}
+
+// Función para mostrar secciones en el contenido alternativo
+function mostrarSeccion(idSeccion) {
+    // Ocultar todas las secciones
+    document.querySelectorAll('.seccion').forEach(seccion => {
+        seccion.classList.remove('visible');
+    });
+
+    // Mostrar la sección correspondiente
+    const seccion = document.getElementById(idSeccion);
+    if (seccion) {
+        seccion.classList.add('visible');
     }
 }
 
@@ -144,5 +160,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.getElementById('contenido-principal')) {
         configurarPrincipal();
+    }
+
+    // Mostrar contenido alternativo en tabletas y móviles
+    if (window.innerWidth <= 768) {
+        document.getElementById('contenido-alternativo').style.display = 'flex';
+        document.getElementById('contenido-principal').style.display = 'none';
+    } else {
+        document.getElementById('contenido-alternativo').style.display = 'none';
+        document.getElementById('contenido-principal').style.display = 'flex';
     }
 });

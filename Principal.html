@@ -6,19 +6,10 @@
         <title>Principal</title>
         <link rel="stylesheet" href="styles.css">
     </head>
-
     <body>
         <!-- Pantalla principal con imagen mapeada -->
         <div id="contenido-principal">
-            <img src="Images/Principal.png" usemap="#mapa-imagen" class="imagen-mapeada">
-
-            <!-- Puntos parpadeantes -->
-            <div class="superposicion">
-                <div class="punto-parpadeante" style="top: 390px; left: 1190px;"></div>
-                <div class="punto-parpadeante" style="top: 685px; left: 760px;"></div>
-                <div class="punto-parpadeante" style="top: 445px; left: 637px;"></div>
-                <div class="punto-parpadeante" style="top: 655px; left: 1030px;"></div>
-            </div>
+            <img src="Images/Principal.png" usemap="#mapa-imagen" class="imagen-mapeada" alt="Imagen Principal Mapeada">
 
             <!-- Mapeado de áreas interactivas -->
             <map name="mapa-imagen">
@@ -31,25 +22,14 @@
                 <area target="_self" alt="Ratón" title="Contacto" href="#contacto"
                     coords="989,659,1026,645,1059,647,1082,661,1096,682,1063,686,1007,684" shape="poly">
             </map>
+
+            <!-- Puntos parpadeantes -->
+            <div class="punto-parpadeante" style="top: 390px; left: 1190px;"></div>
+            <div class="punto-parpadeante" style="top: 685px; left: 760px;"></div>
+            <div class="punto-parpadeante" style="top: 445px; left: 637px;"></div>
+            <div class="punto-parpadeante" style="top: 655px; left: 1030px;"></div>
         </div>
 
-        <!-- Reproductor de música -->
-        <audio id="musica-fondo" loop>
-            <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
-        </audio>
-
-        <!-- Controlador de música -->
-        <div id="controles-musica">
-            <button id="boton-musica">
-                <span id="icono-reproducir">▶️</span>
-                <span id="icono-pausar" style="display: none;">⏸️</span>
-            </button>
-            <button id="boton-silenciar">
-                <span id="icono-sonido">🔊</span>
-                <span id="icono-silencio" style="display: none;">🔇</span>
-            </button>
-            <input type="range" id="control-volumen" min="0" max="1" step="0.01" value="0.1">
-        </div>
 
         <!-- Secciones ocultas -->
         <section id="sobre-mi" class="contenedor oculto">
@@ -96,7 +76,40 @@
             <button onclick="ocultarSeccion('contacto')">Cerrar</button>
         </section>
 
+
+        <!-- Contenido alternativo para tabletas y móviles -->
+        <div id="contenido-alternativo" style="display: block;">
+            <button class="boton-seccion" onclick="mostrarSeccion('sobre-mi')">Sobre Mí</button>
+            <button class="boton-seccion" onclick="mostrarSeccion('educacion')">Educación</button>
+            <button class="boton-seccion" onclick="mostrarSeccion('habilidades')">Habilidades</button>
+            <button class="boton-seccion" onclick="mostrarSeccion('contacto')">Contacto</button>
+        </div>
+
+
+
+        <!-- Música ----------------------------------------------------------------------------------->
+
+        <!-- Reproductor de música -->
+        <audio id="musica-fondo" loop>
+            <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Controlador de música -->
+        <div id="controles-musica">
+            <button id="boton-musica" aria-label="Control de Música">
+                <span id="icono-reproducir">▶️</span>
+                <span id="icono-pausar" style="display: none;">⏸️</span>
+            </button>
+            <button id="boton-silenciar" aria-label="Control de Silencio">
+                <span id="icono-sonido">🔊</span>
+                <span id="icono-silencio" style="display: none;">🔇</span>
+            </button>
+            <input type="range" id="control-volumen" min="0" max="1" step="0.01" value="0.1">
+        </div>
+        <!--------------------------------------------------------------------------------------------->
+
         <!-- Inporta el archivo scripts.js -->
         <script src="scripts.js"></script>
     </body>
+
 </html>
