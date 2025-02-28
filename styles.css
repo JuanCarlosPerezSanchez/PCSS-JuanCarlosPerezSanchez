@@ -176,20 +176,21 @@ button:hover {
 
     /* contenedores ocultas */
     .contenedor {
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        display: none;
         background-color: rgba(0, 0, 0, 0.96);
-        padding: 90px 60px;
-        border-radius: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+        margin: 20px 0;
     }
 
-    .contenedor:not(.oculto) {
-        animation: aparecer 2.3s ease-out forwards;
-    }
-    
     .contenedor.visible {
         display: block;
+    }
+    
+    .contenedor.oculto {
+        display: none;
     }
 }
 
@@ -254,5 +255,9 @@ button:hover {
 
     .contenedor.visible {
         display: block;
+    }
+
+    .contenedor.oculto {
+        display: none;
     }
 }
