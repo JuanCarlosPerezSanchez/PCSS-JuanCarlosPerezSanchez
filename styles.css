@@ -165,35 +165,90 @@ button:hover {
 
 /* Media queries para tabletas */
 @media (max-width: 768px) {
-    
-    .contenido-principal {
-        display: none;
-    }
-    
     body {
-        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
+        padding: 10px; /* Relleno */
+        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png'); /* Imagen de fondo */
+        background-size: cover; /* Cubrir fondo */
+        background-position: center; /* Centrar fondo */
     }
 
-
-    /* contenedores ocultas */
     .contenedor {
-        display: none;
-        background-color: rgba(0, 0, 0, 0.96);
-        padding: 20px;
-        border-radius: 10px;
-        width: 800%;
-        max-width: 300px;
-        margin: 20px 0;
+        padding: 20px; /* Relleno */
+        width: 90%; /* Ancho del 90% */
+        max-width: 90%; /* Ancho máximo del 90% */
+        background-color: rgba(0, 0, 0, 0.96); /* Fondo semitransparente */
+        border-radius: 10px; /* Bordes redondeados */
+        margin: 20px 0; /* Margen vertical */
     }
 
-    .contenedor.visible {
-        display: block;
+    #texto-principal {
+        font-size: 2rem; /* Tamaño de fuente */
     }
 
-    .contenedor.oculto {
-        display: none;
+    #texto-inicio {
+        font-size: 1.5rem; /* Tamaño de fuente */
+    }
+
+    .punto-parpadeante {
+        width: 15px; /* Ancho reducido */
+        height: 15px; /* Altura reducida */
+    }
+
+    button {
+        padding: 8px 16px; /* Relleno */
+    }
+
+    #control-volumen {
+        width: 60px; /* Ancho reducido */
+    }
+
+    /* Ocultar imagen mapeada y mostrar alternativa */
+    #contenido-principal {
+        display: none; /* Ocultar */
+    }
+
+    #contenido-alternativo {
+        display: flex; /* Mostrar como flexbox */
+        flex-direction: column; /* Dirección de columna */
+        align-items: center; /* Centrar horizontalmente */
+        justify-content: center; /* Centrar verticalmente */
+        gap: 20px; /* Espacio entre elementos */
+        width: 100%; /* Ancho completo */
+        height: 100vh; /* Altura completa */
+    }
+
+    .boton-seccion {
+        background-color: #ff00ff; /* Color de fondo */
+        color: white; /* Color del texto */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Bordes redondeados */
+        padding: 10px 20px; /* Relleno */
+        cursor: pointer; /* Cursor de puntero */
+        font-size: 1.2rem; /* Tamaño de fuente */
+        width: 80%; /* Ancho del 80% */
+        max-width: 300px; /* Ancho máximo */
+    }
+
+    .boton-seccion:hover {
+        background-color: #cc00cc; /* Color de fondo al pasar el ratón */
+    }
+
+    .seccion {
+        display: none; /* Ocultar por defecto */
+        background-color: rgba(0, 0, 0, 0.96); /* Fondo semitransparente */
+        padding: 20px; /* Relleno */
+        border-radius: 10px; /* Bordes redondeados */
+        width: 90%; /* Ancho del 90% */
+        max-width: 600px; /* Ancho máximo */
+        margin: 20px 0; /* Margen vertical */
+    }
+
+    .seccion.visible {
+        display: block; /* Mostrar cuando es visible */
     }
 }
+
+
 
 /* Media queries para móviles */
 @media (max-width: 480px) {
