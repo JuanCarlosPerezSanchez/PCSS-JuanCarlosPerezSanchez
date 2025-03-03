@@ -191,16 +191,13 @@ button:hover {
     }
 
     body {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
         background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
         background-repeat: no-repeat;
     }
 
+    .contenido-alternativo {
+        display: flex;
+    }
 
     button {
         padding: 6px 12px;
@@ -208,18 +205,6 @@ button:hover {
 
     #control-volumen {
         width: 40px;
-    }
-
-    #contenedor {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 100vh;
     }
 
     .boton-seccion {
