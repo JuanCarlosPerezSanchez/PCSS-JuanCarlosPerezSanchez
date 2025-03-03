@@ -236,12 +236,25 @@ button:hover {
         background-position: center;
     }
 
+    .titulos-alternativos {
+        margin: 0px;
+        margin-top: 20px;
+        color: black;
+        font-size: 30px;
+    }
+
     button {
         padding: 6px 12px;
     }
 
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
     #control-volumen {
-        width: 40px;
+        width: 50px;
     }
 
     .contenedor {
@@ -269,6 +282,13 @@ button:hover {
         background-image: url('Images/depositphotos_75664443-stock-photo-machine-code-languages-button-on.png');
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    .titulos-alternativos {
+        margin: 0px;
+        margin-top: 20px;
+        color: black;
+        font-size: 30px;
     }
 
     button {
