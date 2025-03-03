@@ -187,6 +187,7 @@ button:hover {
     gap: 10px;
 }
 
+
 /* Pantallas grandes (más de 1024px) */
 @media (min-width: 1024px) {
     /* body {

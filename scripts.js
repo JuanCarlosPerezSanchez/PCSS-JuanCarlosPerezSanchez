@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Mostrar contenido alternativo en tabletas y móviles
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth < 1024) {
         document.getElementById('contenido-alternativo').style.display = 'flex';
         document.getElementById('contenido-principal').style.display = 'none';
     } else {
