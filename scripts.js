@@ -110,7 +110,7 @@ function configurarPrincipal() {
         const areas = document.querySelectorAll('area');
         areas.forEach(area => {
             area.addEventListener('click', function (event) {
-                event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+                event.preventDefault();
 
                 // Ocultar todas las secciones
                 document.querySelectorAll('.contenedor').forEach(seccion => {
