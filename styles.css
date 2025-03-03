@@ -104,6 +104,14 @@ body {
     animation: aparecer 2.3s ease-out forwards;
 }
 
+.contenedor.oculto {
+    display: none;
+}
+
+.contenedor.visible {
+    display: block;
+}
+
 @keyframes aparecer {
     0% {
         opacity: 0;

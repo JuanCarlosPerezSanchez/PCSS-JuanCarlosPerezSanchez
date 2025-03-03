@@ -133,6 +133,7 @@ function ocultarSeccion(idSeccion) {
     const seccion = document.getElementById(idSeccion);
     if (seccion) {
         seccion.classList.add('oculto');
+        seccion.classList.remove('visible');
     }
 }
 
