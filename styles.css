@@ -95,12 +95,12 @@ body {
     background-color: rgba(0, 0, 0, 0.96);
     padding: 170px 120px;
     border-radius: 100%;
-    display: none; /* Ensure it is hidden by default */
+    display: none;
     transform: translate(-50%, -50%);
 }
 
 .contenedor:not(.oculto) {
-    display: block; /* Show when not hidden */
+    display: block;
     animation: aparecer 2.3s ease-out forwards;
 }
 
@@ -122,7 +122,7 @@ button {
     background-color: #ff00ff;
     color: white;
     border-color: #00ffcc;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -171,6 +171,7 @@ button:hover {
     font-size: 1rem;
     width: 80%;
     max-width: 300px;
+    margin: 10px 0;
 }
 
 .boton-seccion:hover {
@@ -238,6 +239,7 @@ button:hover {
         font-size: 1rem;
         width: 80%;
         max-width: 300px;
+        margin: 10px 0;
     }
 
     .contenedor {
@@ -289,6 +291,7 @@ button:hover {
         font-size: 1rem;
         width: 80%;
         max-width: 300px;
+        margin: 10px 0;
     }
 
     .contenedor {
