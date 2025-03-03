@@ -147,6 +147,17 @@ function mostrarSeccion(idSeccion) {
     }
 }
 
+// Función para manejar el cambio de tamaño de la ventana
+function manejarCambioTamano() {
+    if (window.innerWidth < 1024) {
+        document.getElementById('contenido-alternativo').style.display = 'flex';
+        document.getElementById('contenido-principal').style.display = 'none';
+    } else {
+        document.getElementById('contenido-alternativo').style.display = 'none';
+        document.getElementById('contenido-principal').style.display = 'flex';
+    }
+}
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', function () {
     configurarMusica();
@@ -159,12 +170,9 @@ document.addEventListener('DOMContentLoaded', function () {
         configurarPrincipal();
     }
 
+    // Manejar el cambio de tamaño de la ventana
+    window.addEventListener('resize', manejarCambioTamano);
+
     // Mostrar contenido alternativo en tabletas y móviles
-    if (window.innerWidth < 1024) {
-        document.getElementById('contenido-alternativo').style.display = 'flex';
-        document.getElementById('contenido-principal').style.display = 'none';
-    } else {
-        document.getElementById('contenido-alternativo').style.display = 'none';
-        document.getElementById('contenido-principal').style.display = 'flex';
-    }
+    manejarCambioTamano();
 });
