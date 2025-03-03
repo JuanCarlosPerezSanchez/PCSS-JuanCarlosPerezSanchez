@@ -195,7 +195,6 @@ button:hover {
     }
 
     .contenido-alternativo {
-        display: flex;
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -210,6 +209,7 @@ button:hover {
     }
 
     .boton-seccion {
+        display: block;
         background-color: #ff00ff;
         color: white;
         border: none;
