@@ -140,12 +140,13 @@ function ocultarSeccion(idSeccion) {
 function mostrarSeccion(idSeccion) {
     // Ocultar todas las secciones
     document.querySelectorAll('.seccion').forEach(seccion => {
-        seccion.classList.remove('oculto');
+        seccion.classList.add('oculto');
     });
 
     // Mostrar la sección correspondiente
     const seccion = document.getElementById(idSeccion);
     if (seccion) {
+        seccion.classList.remove('oculto');
         seccion.classList.add('visible');
     }
 }
