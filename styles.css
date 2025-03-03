@@ -162,9 +162,14 @@ button:hover {
 }
 
 
+/* Media queries para tabletas */
+@media (min-width: 1024px) {
+    
+}
+
 
 /* Media queries para tabletas */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     body {
         padding: 10px;
         background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
@@ -251,7 +256,7 @@ button:hover {
 
 
 /* Media queries para móviles */
-@media (max-width: 480px) {
+@media (max-width: 767px) {
 
     #contenido-principal {
         display: none;
