@@ -178,6 +178,14 @@ button:hover {
     background-color: #cc00cc;
 }
 
+.contenido-alternativo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 10px;
+}
 
 /* Pantallas grandes (más de 1024px) */
 @media (min-width: 1024px) {
@@ -223,6 +231,7 @@ button:hover {
         align-items: center;
         justify-content: center;
         height: 100vh;
+        gap: 10px;
     }
 
     button {
@@ -275,6 +284,7 @@ button:hover {
         align-items: center;
         justify-content: center;
         height: 100vh;
+        gap: 10px;
     }
 
     button {
