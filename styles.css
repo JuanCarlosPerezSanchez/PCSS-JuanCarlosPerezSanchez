@@ -55,9 +55,12 @@ body {
 }
 
 @keyframes respirar {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -77,9 +80,12 @@ body {
 }
 
 @keyframes parpadeo {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -117,6 +123,7 @@ body {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.9);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
@@ -152,7 +159,8 @@ button:hover {
     border-radius: 20px;
 }
 
-#boton-musica, #boton-silenciar {
+#boton-musica,
+#boton-silenciar {
     margin: 0px;
     background: none;
     border: none;
@@ -177,41 +185,29 @@ button:hover {
 }
 
 
-.boton-seccion {
-    background-color: #ff00ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+.imagen-seccion {
+    background: none;
+    margin: 0px;
     cursor: pointer;
-    font-size: 1rem;
-    width: 80%;
-    max-width: 300px;
-    margin: 10px 0;
-}
-
-.boton-seccion:hover {
-    background-color: #cc00cc;
 }
 
 
 
 /* Pantallas grandes (más de 1024px) */
 @media (min-width: 1024px) {
+
     /* Botón de cerrar */
     button {
         margin-top: 20px;
         padding: 10px 20px;
     }
-    
+
     /* Estilos para el controlador de música */
-    /* #controles-musica {
-    } */
-    
-    #boton-musica, #boton-silenciar {
-        font-size: 25px;
+    #boton-musica,
+    #boton-silenciar {
+        font-size: 30px;
     }
-    
+
     #control-volumen {
         width: 80px;
     }
@@ -247,8 +243,19 @@ button:hover {
         padding: 8px 15px;
     }
 
+    /* Estilos para el controlador de música */
+    #boton-musica,
+    #boton-silenciar {
+        font-size: 25px;
+    }
+
     #control-volumen {
-        width: 50px;
+        width: 70px;
+    }
+
+    .imagen-seccion {
+        width: 330px;
+        height: auto;
     }
 
     .contenedor {
@@ -273,15 +280,16 @@ button:hover {
     }
 
     body {
-        background-image: url('Images/depositphotos_75664443-stock-photo-machine-code-languages-button-on.png');
+        background-image: url('Images/test.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
     }
 
     .titulos-alternativos {
         margin: 0px;
         margin-top: 20px;
-        color: black;
+        color: white;
         font-size: 30px;
     }
 
@@ -289,17 +297,19 @@ button:hover {
         padding: 6px 12px;
     }
 
-    #control-volumen {
-        width: 40px;
+    /* Estilos para el controlador de música */
+    #boton-musica,
+    #boton-silenciar {
+        font-size: 20px;
     }
 
-    .boton-seccion {
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 1rem;
-        width: 80%;
-        max-width: 300px;
-        margin: 10px 0;
+    #control-volumen {
+        width: 60px;
+    }
+
+    .imagen-seccion {
+        width: 270px;
+        height: auto;
     }
 
     .contenedor {
