@@ -170,54 +170,32 @@ button:hover {
 
 /* Media queries para tabletas */
 @media (min-width: 768px) {
-    body {
-        padding: 10px;
-        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
-        background-size: cover;
-        background-position: center;
-    }
-
-    .contenedor {
-        padding: 20px;
-        width: 90%;
-        max-width: 90%;
-        background-color: rgba(0, 0, 0, 0.96);
-        border-radius: 10px;
-        margin: 20px 0;
-    }
-
-    #texto-principal {
-        font-size: 2rem;
-    }
-
-    #texto-inicio {
-        font-size: 1.5rem;
-    }
-
-    .punto-parpadeante {
-        width: 15px;
-        height: 15px;
-    }
-
-    button {
-        padding: 8px 16px;
-    }
-
-    #control-volumen {
-        width: 60px;
-    }
-
-    /* Ocultar imagen mapeada y mostrar alternativa */
     #contenido-principal {
         display: none;
     }
 
-    #contenido-alternativo {
+    body {
+        background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
+        background-repeat: no-repeat;
+    }
+
+
+    button {
+        padding: 6px 12px;
+    }
+
+    #control-volumen {
+        width: 40px;
+    }
+
+    #contenedor {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 20px;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         height: 100vh;
     }
@@ -229,7 +207,7 @@ button:hover {
         border-radius: 5px;
         padding: 10px 20px;
         cursor: pointer;
-        font-size: 1.2rem;
+        font-size: 1rem;
         width: 80%;
         max-width: 300px;
     }
@@ -238,7 +216,7 @@ button:hover {
         background-color: #cc00cc;
     }
 
-    .seccion {
+    .contenedor {
         display: none;
         background-color: rgba(0, 0, 0, 0.96);
         padding: 20px;
@@ -248,7 +226,7 @@ button:hover {
         margin: 20px 0;
     }
 
-    .seccion.visible {
+    .contenedor.visible {
         display: block;
     }
 }
