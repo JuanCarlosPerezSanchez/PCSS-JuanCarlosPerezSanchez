@@ -191,6 +191,10 @@ button:hover {
     }
 
     body {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
         background-image: url('Images/programming-hd-2eo94s73hxhwjcta.png');
         background-repeat: no-repeat;
     }
