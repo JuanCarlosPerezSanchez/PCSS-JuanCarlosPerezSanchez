@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
     color: white;
+    text-align: center;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -197,6 +197,9 @@ button:hover {
 
     .contenido-alternativo {
         display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
     button {
