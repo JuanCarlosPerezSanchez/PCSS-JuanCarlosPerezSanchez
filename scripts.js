@@ -139,12 +139,6 @@ function ocultarSeccion(idSeccion) {
 
 // Función para mostrar secciones en el contenido alternativo
 function mostrarSeccion(idSeccion) {
-    // Ocultar todas las secciones
-    document.querySelectorAll('.seccion').forEach(seccion => {
-        seccion.classList.add('oculto');
-        seccion.classList.remove('visible');
-    });
-
     // Mostrar la sección correspondiente
     const seccion = document.getElementById(idSeccion);
     if (seccion) {
