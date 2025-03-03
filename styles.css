@@ -230,11 +230,10 @@ button:hover {
     }
 
     body {
-        background-image: url('Images/La-importancia-de-la-programacion-segura-o-desarrollo-seguro-de-software.png');
+        background-image: url('Images/Tablet.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        width: 100%;
-        height: 100vh;
+        background-position: center;
     }
 
     button {
