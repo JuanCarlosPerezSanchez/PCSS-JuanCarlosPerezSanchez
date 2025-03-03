@@ -141,6 +141,7 @@ function mostrarSeccion(idSeccion) {
     // Ocultar todas las secciones
     document.querySelectorAll('.seccion').forEach(seccion => {
         seccion.classList.add('oculto');
+        seccion.classList.remove('visible');
     });
 
     // Mostrar la sección correspondiente
@@ -164,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Mostrar contenido alternativo en tabletas y móviles
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
         document.getElementById('contenido-alternativo').style.display = 'flex';
         document.getElementById('contenido-principal').style.display = 'none';
     } else {
